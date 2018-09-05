@@ -29,8 +29,9 @@ $("#submit").on('click', function(event){
     let renderedResults = renderResults({
       result: response.data.children
     });
-    console.log(renderedResults);
+    // console.log(renderedResults);
     $('#results').html(renderedResults);
+
   }, function(error){
     console.log('Error!');
     let noResult = '<div class="postbody"><h3>Oops! Something went wrong :( </h3></div>'

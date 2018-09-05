@@ -15,16 +15,20 @@
 
   <div id="results">
     <template id="result-template">
+      <div class="postbody">
+        <h2> Subreddit Subscribers: {{comma-format result.0.data.subreddit_subscribers}}</h2>
+      </div>
       {{#each result}}
       <div class="postbody">
         <div class="posttitle">{{data.title}}</div>
         <div class="info"> Author: {{data.author}} | Score: {{data.score}} </div>
-
-        <a href="{{image.source.url}}" target="_blank">
-        <img class="pic" src="{{image.source.url}}">
+        {{#if data.preview.images}}
+        {{#each data.preview.images}}
+        <a href="{{source.url}}" target="_blank">
+        <img class="pic" src="{{source.url}}">
         </a>
-
-        <div class='subscribers'> Subreddit Subscribers: {{comma-format data.subreddit_subscribers}}</div>
+        {{/each}}
+        {{/if}}
 
         {{#if data.num_comments}}
         <div class='comments'> Comments: {{comma-format data.num_comments}}</div>
