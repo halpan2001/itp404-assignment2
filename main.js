@@ -2,7 +2,7 @@ let resultTemplateString = document.getElementById('result-template').innerHTML;
 let renderResults = Handlebars.compile(resultTemplateString);
 
 Handlebars.registerHelper('comma-format', function(num){
-  return num.toLocaleString('en-IN');
+  return num.toLocaleString();
 });
 
 
