@@ -13,10 +13,35 @@
     <input id="submit" type="submit" value="Search">
   </form>
 
-  <div id="results"></div>
+  <div id="results">
+    <template id="result-template">
+      {{#each result}}
+      <div class="postbody">
+        <div class="posttitle">{{data.title}}</div>
+        <div class="info"> Author: {{data.author}} | Score: {{data.score}} </div>
+
+        <a href="{{image.source.url}}" target="_blank">
+        <img class="pic" src="{{image.source.url}}">
+        </a>
+
+        <div class='subscribers'> Subreddit Subscribers: {{comma-format data.subreddit_subscribers}}</div>
+
+        {{#if data.num_comments}}
+        <div class='comments'> Comments: {{comma-format data.num_comments}}</div>
+        {{else}}
+        <div class='comments'> No Comments</div>
+        {{/if}}
+
+      </div>
+      {{/each}}
+    </template>
+
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="handlebars-v4.0.11.js"></script>
   <script src="main.js"></script>
+
 
 </body>
 </html>
